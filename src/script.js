@@ -176,7 +176,7 @@ const createPlanet = (planet) => {
   // create mesh and add to the scene
   const planetMesh = new THREE.Mesh(sphereGeometry,planet.material)
   planetMesh.position.x = planet.distance
-  planetMesh.scale.setScalar(planet.radius)      
+  planetMesh.scale.setScalar(planet.radius)        
   return planetMesh
 }
 const createMoon = (moon) => {
@@ -266,7 +266,8 @@ console.log(planetMeshes)
 // render loop
 const renderloop = () => {  
   planetMeshes.forEach((planet, index) => {        
-    planet.rotation.y += planets[index].speed
+    planet.rotation.y += planets[index].speed                   
+    planet.rotation.x += planets[index].speed                   
     planet.position.x = Math.sin(planet.rotation.y) * planets[index].distance
     planet.position.z = Math.cos(planet.rotation.y) * planets[index].distance
     planet.children.forEach((moon,moonInd) => {
